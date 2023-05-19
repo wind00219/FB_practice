@@ -11,19 +11,22 @@
         }
         body{
             margin: 0px; 
-            padding: 56px 0px;       
+            padding: 56px 0px;
+            /* 空出nav的空間 */
         }
-        #nav{
+        nav{
             width: 100%;
             height: 56px;
             position: fixed;
             box-shadow: 0px -3px 5px;
             background-color: white;
             z-index: 2;
+            /* 圖層 */
             top: 0px;
             right: 0px;
+            /* 固定位置 */
         }
-        #main{
+        main{
             width: 100%;
             height: 960px;
         }
@@ -34,12 +37,13 @@
             padding: 8px 16px;
             
         }
-        #link{
+        #links{
             width: 544px;
             height: 56px;
             position: absolute;
             right: calc(50% - 272px);
             top: 0px;
+            /* 水平置中又不要有體積(margin)，用position: absolute，上下不動，左右：父層的一半-子層的一半 */
         }
         #function{
             width: 184px;
@@ -63,15 +67,19 @@
         }
         #main-body{
             width: calc(100% - 360px);
-            height: 617px;
+            /* 高度取決於內容，不用設 */
             float: right;
             box-shadow: 0px 2px 5px -5px;
+            background:linear-gradient(#d48193 0% ,white 50%) ;
+            /* 漸層 (to bottom-可換) 第一色 起始點 第二色 結束點 */
         }
         #logo{
             width: 40px;
             height: 40px;
             float: left;
             border-radius: 50%;
+            cursor: pointer;
+            /* 滑鼠懸浮時改變滑鼠樣式 */
         }
         #search{
             width: 280px;
@@ -79,82 +87,67 @@
             background-image: url(./img/fb圖片/searchbar.JPG);
             float: right;
             border-radius: 20px;
+            /* 圓角的半徑為高的一半 */
             position: relative;
-            text-decoration: none;
         }
         #searchbar{
-            text-decoration: none;
             position: absolute;
             left: 36px;
             background-color: transparent;
+            /* 透明 */
             border:none;
             width: 244px;
             height: 40px;
-            outline:medium;
+            outline: medium;
+            /* 去除點擊後出現的邊框 */
+            /* 檢查預設偽元素的設定，找style右邊的:hor，將各個樣式打勾確認有無變化 */
+            /* 另一種去邊框方法：input:focus-visible {outline:0px}*/
+            /* outline類似border，但本身不占體積 */
         }
-        #home{
+        .link{
             width: 130px;
             height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            float: left;
+            cursor: pointer;
+        }
+        .home{
             background-image: url(./img/fb圖片/home.JPG);
-            background-repeat: no-repeat;
-            background-position: center;
-            float: left;
         }
-        #media{
-            width: 130px;
-            height: 100%;
+        .media{
             background-image: url(./img/fb圖片/media.JPG);
-            background-position: center;
-            background-repeat: no-repeat;
-            float: left;
             margin: 0px 8px;
         }
-        #community{
-            width: 130px;
-            height: 100%;
+        .community{
             background-image: url(./img/fb圖片/communt.JPG);
-            background-position: center;
-            background-repeat: no-repeat;
-            float: left;
         }
-        #game{
-            width: 130px;
-            height: 100%;
+        .game{
             background-image: url(./img/fb圖片/game.JPG);
-            background-position: center;
-            background-repeat: no-repeat;
+        }
+        .link.game{
             float: right;
         }
-        #function-list{
+        .icon{
             width: 40px;
             height: 40px;
+            float: left;
+            margin-right: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .function-list{
             background-image: url(./img/fb圖片/fun.JPG);
-            border-radius: 50%;
-            float: left;
-            margin-right: 8px;
         }
-        #messenger{
-            width: 40px;
-            height: 40px;
+        .messenger{
             background-image: url(./img/fb圖片/msg.JPG);
-            float: left;
-            margin-right: 8px;
-            border-radius: 50%;
         }
-        #bell{
-            width: 40px;
-            height: 40px;
+        .bell{
             background-image: url(./img/fb圖片/bell.JPG);
-            float: left;
-            margin-right: 8px;
-            border-radius: 50%;
         }
-        #profile{
-            width: 40px;
-            height: 40px;
+        .profile{
             background-image: url(./img/fb圖片/pro.JPG);
-            float: left;
-            border-radius: 50%;
+            margin: 0px;
         }
         #index-title{
             width: 100%;
@@ -170,10 +163,13 @@
             border-radius: 8px;
             background-position: center;
             box-shadow: 0px 0px 1px;
+            /* 陰影數字順序 水平位移 垂直位移 模糊程度 */
             float: left;
+            cursor: pointer;
         }
         #headshot:hover{
-            -webkit-filter: brightness( 95% );
+            filter: brightness( 95% );
+            /* 滑鼠懸浮時增加濾鏡：降低明度 */
         }
         #information{
             float: right;
@@ -186,16 +182,18 @@
             font-weight:600;
             font-size: 17px;
             letter-spacing: 0.25px;
+            /* 字元間距 */
             margin: 0px 4px;
+            cursor: pointer;
         }
         #index-name:hover{
             text-decoration: underline;
+            /* 滑鼠懸浮時顯示底線 */
         }
         #earth-icon{
             background-image: url(./img/fb圖片/地圖截圖.jpg);
             width: 12px;
             height: 12px;
-            filter: grayscale(100%);
             float: left;
         }
         #state-word{
@@ -205,6 +203,7 @@
             color: #65676b;
             margin: -2.5px 5px;
             letter-spacing: 0.8px;
+            /* 字元間距 */
         }
         #state{
             width: calc(100% - 4px);
@@ -218,122 +217,62 @@
             bottom: 0pt;
             padding:  0px 8px;
         }
-        #index-community{
+        .box{
             width: 344px;
             height: 44px;
-            padding: 12px 8px;      
+            padding: 12px 8px;  
+            cursor: pointer; 
+        }
+        .box-icon{
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            float: left;
         }
         #community-icon{
             background-image: url(./img/fb圖片/社群首頁.jpg);
-            width: 20px;
-            height: 20px;
-            float: left;
-        }
-        #community-word{
-            margin: 0px 32px;
-            font-size: 15px;
-        }
-        #box{
-            width: 344px;
-            height: 44px;
-            padding: 12px 8px; 
         }
         #box-icon{
             background-image: url(./img/fb圖片/包廂.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 20px;
-            height: 20px;
-            float: left;
-        }
-        #box-word{
-            margin: 0px 32px;
-            font-size: 15px;
-        }
-        #activity{
-            width: 344px;
-            height: 44px;
-            padding: 12px 8px; 
         }
         #activity-icon{
             background-image: url(./img/fb圖片/活動.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 20px;
-            height: 20px;
-            float: left;
         }
-        #activity-word{
+        .word{
             margin: 0px 32px;
             font-size: 15px;
         }
         #group{
             width: 344px;
             height: 420px;
-            position: relative;  
+            padding-left: 8px;  
+        }
+        .group{
+            width: 100%;
+            height: 60px;
+            background-repeat: no-repeat;
         }
         #group-br{
-            width: 100%;
-            height: 60px;
             background-image: url(./img/fb圖片/br.jpg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top:1px;
-            left: 8px;
         }
         #group-es{
-            width: 100%;
-            height: 60px;
             background-image: url(./img/fb圖片/es.jpg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 60px;
-            left: 8px;
         }
         #group-id{
-            width: 100%;
-            height: 60px;
             background-image: url(./img/fb圖片/id.jpg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 115px;
-            left: 8px;
         }
         #group-in{
-            width: 100%;
-            height: 60px;
             background-image: url(./img/fb圖片/in.jpg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 171px;
-            left: 8px;
         }
         #group-kh{
-            width: 100%;
-            height: 60px;
             background-image: url(./img/fb圖片/kh.jpg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 227px;
-            left: 8px;
         }
         #group-ma{
-            width: 100%;
-            height: 60px;
             background-image: url(./img/fb圖片/ma.jpg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 282px;
-            left: 8px;
         }
         #group-mm{
-            width: 100%;
-            height: 60px;
             background-image: url(./img/fb圖片/mm.jpg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 339px;
-            left: 8px;
         }
         #cover{
             width: 1250px;
@@ -343,7 +282,10 @@
             background-repeat: no-repeat;
             background-size: cover;
             margin: auto;
-            border-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            /* 只設置單邊圓角 */
+            cursor: pointer;
         }
         #title{
             width: 1185px;
@@ -351,7 +293,7 @@
             margin: auto;
             padding-bottom: 16px;
             position: relative;
-            
+            cursor: pointer;
         }
         #name{
             position: absolute;
@@ -360,9 +302,12 @@
             font-size: 27px;
             font-weight: bolder;
             letter-spacing: 1px;
+            /* 字元間距 */
+            cursor: pointer;
         }
         #name:hover{
-            text-decoration: underline;            
+            text-decoration: underline;  
+            /* 滑鼠懸浮上方時出現底線 */
         }
         #button{
             position: absolute;
@@ -370,20 +315,24 @@
             top: 31px;
             width: 230px;
             height: 36px;
+            cursor: pointer;
         }
         #join{
             background-image: url(./img/fb圖片/加入社團.jpg);
             width: 174px;
             height: 36px;
             float: left;
+            cursor: pointer;
         }
         #button-dropdown{
             background-image: url(./img/fb圖片/選單向下.jpg);
             width: 48px;
             height: 36px;
             float: right;
+            cursor: pointer;
         }
         #hr{
+            /* 分隔線 */
             width: 1185px;
             height: 1px;
             margin: auto;
@@ -401,46 +350,36 @@
             top:673px;
             z-index: -1;
         }
-        #discuss{
-            background-image: url(./img/fb圖片/討論.jpg);
+        .list{
             width: 62px;
             height: 60px;
             float: left;
+            cursor: pointer;
+        }
+        #discuss{
+            background-image: url(./img/fb圖片/討論.jpg);
         }
         #featured{
             background-image: url(./img/fb圖片/精選.jpg);
-            width: 62px;
-            height: 60px;
-            float: left;
         }
         #reels{
             background-image: url(./img/fb圖片/reel.jpg);
-            width: 62px;
-            height: 60px;
-            float: left;
         }
         #user{
             background-image: url(./img/fb圖片/用戶.jpg);
-            width: 62px;
-            height: 60px;
-            float: left;
         }
         #video{
             background-image: url(./img/fb圖片/影音內容.jpg);
             width: 90px;
-            height: 60px;
-            float: left;
         }
         #file{
             background-image: url(./img/fb圖片/檔案.jpg);
             width: 71px;
-            height: 60px;
-            float: left;
         }
     </style>
 </head>
 <body>
-    <div id="nav">
+    <nav>
         <div id="search-bar">
             <div id="logo">
                 <a href="https://www.facebook.com/">
@@ -453,24 +392,25 @@
                     <div class="container">
                         <span class="icon"><i class="fa fa-search"></i></span>
                         <input type="search" id="searchbar" />
+                        <!--於input加入背景字體：placdholder="搜尋FACEBOOK(打字時會消失)"-->
                     </div>
                   </div>
             </div>
         </div>
-        <div id="link">
-            <div id="home"></div>
-            <div id="media"></div>
-            <div id="community"></div>
-            <div id="game"></div>
+        <div id="links">
+            <div class="link home"></div>
+            <div class="link media"></div>
+            <div class="link community"></div>
+            <div class="link game"></div>
         </div>
         <div id="function">
-            <div id="function-list"></div>
-            <div id="messenger"></div>
-            <div id="bell"></div>
-            <div id="profile"></div>
+            <div class="icon function-list"></div>
+            <div class="icon messenger"></div>
+            <div class="icon bell"></div>
+            <div class="icon profile"></div>
         </div>
-    </div>
-    <div id="main">
+    </nav>
+    <main>
         <div id="index">
             <div id="index-title">
                 <div id="headshot">
@@ -490,26 +430,27 @@
                 </div>
             </div>
             <div id="index-detail">
-                <div id="index-community">
-                    <div id="community-icon"></div>
-                    <div id="community-word">社群首頁</div>
+                <div class="box">
+                    <div id="community-icon" class="box-icon"></div>
+                    <div id="community-word" class="word">社群首頁</div>
                 </div>
-                <div id="box">
-                    <div id="box-icon"></div>
-                    <div id="box-word">包廂</div>
+                <div class="box">
+                    <div id="box-icon" class="box-icon"></div>
+                    <div id="box-word"  class="word" >包廂</div>
                 </div>
-                <div id="activity">
-                    <div id="activity-icon"></div>
-                    <div id="activity-word">活動</div>
+                <div class="box">
+                    <div id="activity-icon" class="box-icon"></div>
+                    <div id="activity-word" class="word">活動</div>
                 </div>
                 <div id="group">
-                    <div id="group-br"></div>
-                    <div id="group-es"></div>
-                    <div id="group-id"></div>
-                    <div id="group-in"></div>
-                    <div id="group-kh"></div>
-                    <div id="group-ma"></div>
-                    <div id="group-mm"></div>
+                    <div id="group-br" class="group"></div>
+                    <div id="group-es" class="group"></div>
+                    <div id="group-id" class="group"></div>
+                    <div id="group-in" class="group"></div>
+                    <div id="group-kh" class="group"></div>
+                    <div id="group-ma" class="group"></div>
+                    <div id="group-mm" class="group"></div>
+                    <!-- id修改共同設定使用class -->
                 </div>
             </div>
         </div>
@@ -536,12 +477,12 @@
             </div>
             <div id="list">
                 <div id="common">
-                    <div id="discuss"></div>
-                    <div id="featured"></div>
-                    <div id="reels"></div>
-                    <div id="user"></div>
-                    <div id="video"></div>
-                    <div id="file"></div>
+                    <div id="discuss" class="list"></div>
+                    <div id="featured" class="list"></div>
+                    <div id="reels" class="list"></div>
+                    <div id="user" class="list"></div>
+                    <div id="video" class="list"></div>
+                    <div id="file" class="list"></div>
                 </div>
                 <div id="list-search">
                     <div id="search-button"></div>
@@ -553,6 +494,6 @@
             </div>
             <div id="down"></div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
